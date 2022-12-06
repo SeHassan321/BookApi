@@ -57,7 +57,7 @@ namespace BooksApi.Migrations
                     b.Property<int?>("AutherId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FavoritListId")
+                    b.Property<int?>("FavoritListId")
                         .HasColumnType("int");
 
                     b.Property<int?>("NumberOfPages")
@@ -430,9 +430,7 @@ namespace BooksApi.Migrations
 
                     b.HasOne("BooksApi.Models.FavoritList", null)
                         .WithMany("BookFavourite")
-                        .HasForeignKey("FavoritListId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FavoritListId");
 
                     b.Navigation("Auther");
                 });
